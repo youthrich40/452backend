@@ -1,4 +1,5 @@
 import java.net.InetSocketAddress;
+import java.sql.SQLException;
 
 import Handlers.RootHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -13,5 +14,16 @@ public class Server {
         server.createContext("/", new RootHandler());
         server.setExecutor(null); // creates a default executor
         server.start();
+
+        SQLDatabaseConnection connection = new SQLDatabaseConnection();
+
+        try {
+            connection.connectWithDatabase();
+        } catch(SQLException e) {
+            e.printStackTrace();
+            System.out.println("Error: could not connect with the database.");
+
+            server.stop(0);
+        }
     }
 }
