@@ -3,13 +3,13 @@ package Models;
 import java.sql.Date;
 
 public class QuizAttempts {
-    private String attemptID;
-    private String userID;
-    private String questionID;
+    private int attemptID;
+    private int userID;
+    private int questionID;
     private String answerSubmitted;
     private Date attemptDate;
 
-    public QuizAttempts(String attemptID, String userID, String questionID, String answerSubmitted) {
+    public QuizAttempts(int attemptID, int userID, int questionID, String answerSubmitted) {
         this.attemptID = attemptID;
         this.userID = userID;
         this.questionID = questionID;
@@ -17,27 +17,27 @@ public class QuizAttempts {
         attemptDate = new java.sql.Date(System.currentTimeMillis());    // Get the time of this exact attempt
     }
 
-    public String getAttemptID() {
+    public int getAttemptID() {
         return attemptID;
     }
 
-    public void setAttemptID(String attemptID) {
+    public void setAttemptID(int attemptID) {
         this.attemptID = attemptID;
     }
 
-    public String getUserID() {
+    public int getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(int userID) {
         this.userID = userID;
     }
 
-    public String getQuestionID() {
+    public int getQuestionID() {
         return questionID;
     }
 
-    public void setQuestionID(String questionID) {
+    public void setQuestionID(int questionID) {
         this.questionID = questionID;
     }
 

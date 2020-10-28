@@ -1,29 +1,29 @@
 package Models;
 
 public class Quiz {
-    private String questionID;
-    private String userID;
+    private int questionID;
+    private int userID;
     private int numberOfAttempts;
 
-    public Quiz(String questionID, String userID, int numberOfAttempts) {
+    public Quiz(int questionID, int userID, int numberOfAttempts) {
         this.questionID = questionID;
         this.userID = userID;
         this.numberOfAttempts = numberOfAttempts;
     }
 
-    public String getQuestionID() {
+    public int getQuestionID() {
         return questionID;
     }
 
-    public void setQuestionID(String questionID) {
+    public void setQuestionID(int questionID) {
         this.questionID = questionID;
     }
 
-    public String getUserID() {
+    public int getUserID() {
         return userID;
     }
 
-    public void setUserID(String userID) {
+    public void setUserID(int userID) {
         this.userID = userID;
     }
 
