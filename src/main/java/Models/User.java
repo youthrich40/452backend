@@ -1,19 +1,19 @@
 package Models;
 
 public class User {
-    private int userID;
+    private String userID;
     private String purchaseInfo;
 
-    public User(int userID, String purchaseInfo) {
+    public User(String userID, String purchaseInfo) {
         this.userID = userID;
         this.purchaseInfo = purchaseInfo;
     }
 
-    public int getUserID() {
+    public String getUserID() {
         return userID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 
