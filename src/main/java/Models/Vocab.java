@@ -13,14 +13,14 @@ public class Vocab {
     private int total_views;
 
     public Vocab(int vocabID, int userID, String value, String description,
-                 String english, long prev_reviewed, long cur_reviewed, int total_views) {
+                 String english, Date prev_reviewed, Date cur_reviewed, int total_views) {
         this.vocabID = vocabID;
         this.userID = userID;
         this.value = value;
         this.description = description;
         this.english = english;
-        this.prev_reviewed = new java.sql.Date(prev_reviewed);
-        this.cur_reviewed = new java.sql.Date(cur_reviewed);
+        this.prev_reviewed = prev_reviewed;
+        this.cur_reviewed = cur_reviewed;
         this.total_views = total_views;
     }
 

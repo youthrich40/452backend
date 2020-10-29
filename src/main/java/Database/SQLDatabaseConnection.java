@@ -1,9 +1,17 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+package Database;
+
+import java.sql.*;
 
 public class SQLDatabaseConnection {
+    private static SQLDatabaseConnection instance = new SQLDatabaseConnection();
+
     private Connection connection;
+
+    private SQLDatabaseConnection(){}
+
+    public static SQLDatabaseConnection getInstance() {
+        return instance;
+    }
 
     public void connectWithDatabase() throws SQLException, ClassNotFoundException {
         String connectionUrl = "jdbc:mysql://localhost:3306/cs452project?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
@@ -16,5 +24,9 @@ public class SQLDatabaseConnection {
         connection = DriverManager.getConnection(connectionUrl, username, password);
 
         System.out.println("Database connected.");
+    }
+
+    public Connection getConnection() {
+        return connection;
     }
 }
