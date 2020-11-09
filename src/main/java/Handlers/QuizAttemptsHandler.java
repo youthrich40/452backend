@@ -1,7 +1,6 @@
 package Handlers;
 
 import Database.SQLDatabaseConnection;
-import Models.Quiz;
 import Models.QuizAttempts;
 
 import java.sql.*;

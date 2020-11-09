@@ -1,15 +1,19 @@
 package Handlers;
 
 import Database.SQLDatabaseConnection;
-import Models.Quiz;
+import Models.User;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class QuizHandler extends BaseHandler {
+public class UserHandler extends BaseHandler {
 
+    @Override
     public List<Object> executeQuery(String query) throws SQLException {
         Connection connection = SQLDatabaseConnection.getInstance().getConnection();
 
@@ -17,18 +21,17 @@ public class QuizHandler extends BaseHandler {
 
         ResultSet results = statement.executeQuery(query);
 
-        List<Quiz> quizList = new ArrayList<>();
+        List<User> userList = new ArrayList<>();
 
         while (results.next()) {
-            int questionID = results.getInt("questionID");
             int userID = results.getInt("userID");
-            int number_of_attempts = results.getInt("number_of_attempts");
+            String purchaseInfo = results.getString("purchaseInfo");
 
-            Quiz quiz = new Quiz(questionID, userID, number_of_attempts);
+            User user = new User(userID, purchaseInfo);
 
-            quizList.add(quiz);
+            userList.add(user);
         }
 
-        return Collections.singletonList(quizList);
+        return Collections.singletonList(userList);
     }
 }
