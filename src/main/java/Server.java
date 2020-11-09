@@ -2,6 +2,7 @@ import java.net.InetSocketAddress;
 import java.sql.SQLException;
 
 import Database.SQLDatabaseConnection;
+import Handlers.QuizHandler;
 import Handlers.RootHandler;
 import Handlers.VocabHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -15,6 +16,7 @@ public class Server {
 
         server.createContext("/", new RootHandler());
         server.createContext("/vocab", new VocabHandler());
+        server.createContext("/quiz", new QuizHandler());
         server.setExecutor(null); // creates a default executor
         server.start();
 

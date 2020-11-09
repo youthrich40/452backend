@@ -36,12 +36,12 @@ public abstract class BaseHandler implements HttpHandler {
         String response = "";
 
         try {
-            List<Vocab> vocab = executeQuery(query);
+            List<Object> list = executeQuery(query);
 
             Headers headers = t.getResponseHeaders();
             headers.set("Content-Type", String.format("application/json; charset=%s", StandardCharsets.UTF_8));
 
-            response = new Gson().toJson(vocab);
+            response = new Gson().toJson(list);
 
             final byte[] rawResponseBody = response.getBytes(StandardCharsets.UTF_8);
             t.sendResponseHeaders(200, rawResponseBody.length);
@@ -84,7 +84,7 @@ public abstract class BaseHandler implements HttpHandler {
         System.out.println(response);
     }
 
-    public abstract List<Vocab> executeQuery(String query) throws SQLException;
+    public abstract List<Object> executeQuery(String query) throws SQLException;
 
     public void executeUpdate(String update) throws SQLException {
         Connection connection = SQLDatabaseConnection.getInstance().getConnection();
